@@ -13,6 +13,7 @@
   --secondary-bg-color: #f5f4fa;
   --line-border-color: #ececec;
   --social-icon-color: #afb1b8;
+  --bg-color-primary:#e5e5e5;
   /* ефект */
   --timing-func: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -231,13 +232,17 @@ img {
   border-color: rgba(0, 0, 0, 0.1);
   background-color: var(--primary-white-color);
   cursor: pointer;
+
 }
 .modal-button-close {
   display: inline-block;
-  color: #000000;
-  width: 11px;
-  height: 11px;
+  fill: #000000;
+  transition: fill 250ms var(--timing-func);
 }
+.modal-button:focus .modal-button-close,
+.modal-button:hover .modal-button-close {
+  fill: var(--accent-color)
+} 
 
 .backdrop.is-hidden {
   opacity: 0;
@@ -378,7 +383,7 @@ img {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
-  color: var(--primary-text-color);
+  color: var(--secondary-text-color);
 }
 
 .label-user-checkbox::before {
@@ -386,7 +391,7 @@ img {
   content: "";
   width: 16px;
   height: 15px;
-  border: 2px solid var(--title-text-color);
+  border: 2px solid var(--primary-text-color);
   border-radius: 4px;
   display: inline-block;
   margin-right: 8px;
@@ -397,9 +402,10 @@ img {
 .form-checkbox:checked+.label-user-checkbox::before {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
-  background-image: url(../images/check.svg);
+  background-image: url(../images/svg/check.svg);
   background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .form-checkbox:focus+.label-user-checkbox::before {
@@ -413,11 +419,14 @@ img {
 }
 
 
-.button.form-btn {
+.form-btn {
   display: block;
   width: 200px;
   align-self: center;
-
+  padding: 10px 32px;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  border: transparent;
   color: var(--primary-white-color);
   background-color: var(--accent-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -431,8 +440,8 @@ img {
   transition: background-color 250ms var(--timing-func);
 }
 
-.button.form-btn:hover,
-.button.form-btn:focus {
+.form-btn:hover,
+.form-btn:focus {
   background: #188CE8;
 }
 
@@ -440,7 +449,12 @@ img {
 .subscribe-conteiner {
   margin-left: 93px;
 }
-
+.join {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary-white-color);
+  margin-bottom: 20px;
+}
 .subscribe {
   display: flex;
 }
@@ -472,6 +486,9 @@ img {
   align-self: center;
 
   margin-left: 12px;
+  padding: 10px 32px;
+  border-radius: 4px;
+  border: transparent;
 
   color: var(--primary-white-color);
   background-color: var(--accent-color);
